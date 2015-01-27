@@ -4,10 +4,11 @@
 
 var assemblyKitControllers = angular.module('assemblyKitControllers', []);
 
-assemblyKitControllers.factory('GetJson', function ($resource) {
+assemblyKitControllers.constant( 'jsonURL', 'http://managed.nattodaisuki.com/wp-json/' );
+assemblyKitControllers.service( 'GetJson', function ( $resource, jsonURL ) {
 
 	var res = $resource(
-		'http://managed.nattodaisuki.com/wp-json/posts/',
+		jsonURL,
 		{
 			'update': { method: 'PUT' },
 			'query': { method: 'GET', isArray: true, cache: false }
@@ -24,9 +25,17 @@ assemblyKitControllers.factory('GetJson', function ($resource) {
 assemblyKitControllers.controller( 'MainCtrl', function ( $scope, GetJson ) {
 
 		$scope.posts = GetJson.all();
-		console.log($scope.posts);
 
 	});
+assemblyKitControllers.controller( 'MkHead', function ( $scope, GetJson ) {
+		var config = {
+			jsonURL: 'http://managed.nattodaisuki.com/wp-json/'
+		};
+
+		$scope.haed = GetJson.all();
+
+	});
+
 /*
 assemblyKitControllers.controller('CompanyDetailCtrl', ['$scope', '$routeParams', '$http',
 	function($scope, $routeParams, $http) {
