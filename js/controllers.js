@@ -5,7 +5,7 @@
 var assemblyKitControllers = angular.module('assemblyKitControllers', []);
 
 assemblyKitControllers.constant( 'jsonURL', 'http://managed.nattodaisuki.com/wp-json/' );
-assemblyKitControllers.service( 'GetJson', function ( $resource, jsonURL ) {
+assemblyKitControllers.factory( 'GetJson', function ( $resource, jsonURL ) {
 
 	var res = $resource(
 		jsonURL,
