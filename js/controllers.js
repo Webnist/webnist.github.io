@@ -25,7 +25,7 @@ assemblyKitControllers.factory( 'GetJson', function ( $resource ) {
 assemblyKitControllers.factory( 'GetJsonMenu', function ( $resource ) {
 
 	var res = $resource(
-			'http://managed.nattodaisuki.com/wp-json/menus/primary/content/',
+			'http://managed.nattodaisuki.com/wp-json/menus/',
 		{
 			'update': { method: 'PUT' },
 			'query': { method: 'GET', isArray: true, cache: false }
@@ -49,7 +49,7 @@ assemblyKitControllers.controller( 'MainCtrl', function ( $scope, GetJson ) {
 assemblyKitControllers.controller( 'WPGlobalMenu', function ( $scope, GetJsonMenu ) {
 
 		$scope.menus = GetJsonMenu.all();
-		console.log(GetJsonMenu);
+		console.log($scope.menus);
 
 	});
 
