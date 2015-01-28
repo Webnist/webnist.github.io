@@ -25,7 +25,7 @@ assemblyKitControllers.factory( 'GetJson', function ( $resource ) {
 assemblyKitControllers.factory( 'GetJsonMenu', function ( $resource ) {
 
 	var res = $resource(
-			'http://managed.nattodaisuki.com/wp-json/menus/',
+			'http://managed.nattodaisuki.com/wp-json/menus/primary/content/',
 		{
 			'update': { method: 'PUT' },
 			'query': { method: 'GET', isArray: true, cache: false }
