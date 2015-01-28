@@ -22,21 +22,32 @@ assemblyKitControllers.factory( 'GetJson', function ( $resource ) {
 	};
 
 });
+assemblyKitControllers.factory( 'GetJsonMenu', function ( $resource ) {
+
+	var res = $resource(
+			'http://managed.nattodaisuki.com/wp-json/menus/primary/content/',
+		{
+			'update': { method: 'PUT' },
+			'query': { method: 'GET', isArray: true, cache: false }
+		}
+	);
+
+	return {
+		all: function () {
+			return res.query();
+		}
+	};
+
+});
+
 assemblyKitControllers.controller( 'MainCtrl', function ( $scope, GetJson ) {
 
 		$scope.posts = GetJson.all();
 
 	});
-assemblyKitControllers.controller( 'WPGlobalMenu', function ( $scope, GetJson ) {
-		var res = $resource(
-			'http://managed.nattodaisuki.com/wp-json/menus/primary/content/',
-			{
-				'update': { method: 'PUT' },
-				'query': { method: 'GET', isArray: true, cache: false }
-			}
-		);
+assemblyKitControllers.controller( 'WPGlobalMenu', function ( $scope, GetJsonMenu ) {
 
-		$scope.menus = GetJson.all();
+		$scope.menus = GetJsonMenu.all();
 
 	});
 
