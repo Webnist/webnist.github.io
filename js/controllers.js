@@ -49,7 +49,6 @@ assemblyKitControllers.controller( 'MainCtrl', function ( $scope, GetJson ) {
 assemblyKitControllers.controller( 'WPGlobalMenu', function ( $scope, GetJsonMenu ) {
 
 		$scope.menus = GetJsonMenu.all();
-		console.log($scope.menus);
 
 	});
 
