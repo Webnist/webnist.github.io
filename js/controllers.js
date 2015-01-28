@@ -45,10 +45,11 @@ assemblyKitControllers.controller( 'MainCtrl', function ( $scope, GetJson ) {
 		$scope.posts = GetJson.all();
 
 	});
+
 assemblyKitControllers.controller( 'WPGlobalMenu', function ( $scope, GetJsonMenu ) {
 
 		$scope.menus = GetJsonMenu.all();
-		console.log($scope.menus);
+		console.log(GetJsonMenu.all());
 
 	});
 
