@@ -14,7 +14,11 @@
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header" role="banner" ng-include="'/templates/header.html'">
 	</header>
-	<nav id="global-nav-box" class="global-menu" ng-controller="WPGlobalMenu" ng-repeat="menu in menus">{{menu.content}}</nav>
+	<nav id="global-nav-box" class="global-menu" ng-controller="WPGlobalMenu">
+		<ng-repeat="menu in menus">
+			{{menu.content}}
+		</ng-repeat>
+	</nav>
 	<div ng-include="'/templates/my-customer.html'"></div>
 </div>
 </body>
