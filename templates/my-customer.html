@@ -6,7 +6,8 @@
 				<img src="{{post.featured_image.attachment_meta.sizes.thumbnail.url}}" width="{{post.featured_image.attachment_meta.sizes.thumbnail.width}}" height="{{post.featured_image.attachment_meta.sizes.thumbnail.height}}" ng-if="!!post.featured_image">
 				{{post.title}}
 			</a>
-			<p ng-repeat="term in terms">
+			{{post.terms}}
+			<p ng-repeat="term in post.terms">
 				{{term.category.name}}
 			</p>
 		</li>
