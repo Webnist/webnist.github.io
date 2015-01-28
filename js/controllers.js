@@ -27,6 +27,18 @@ assemblyKitControllers.controller( 'MainCtrl', function ( $scope, GetJson ) {
 		$scope.posts = GetJson.all();
 
 	});
+assemblyKitControllers.controller( 'WPGlobalMenu', function ( $scope, GetJson ) {
+		var res = $resource(
+			'http://managed.nattodaisuki.com/wp-json/menus/primary/content/',
+			{
+				'update': { method: 'PUT' },
+				'query': { method: 'GET', isArray: true, cache: false }
+			}
+		);
+
+		$scope.menus = GetJson.all();
+
+	});
 
 /*
 assemblyKitControllers.controller('CompanyDetailCtrl', ['$scope', '$routeParams', '$http',
