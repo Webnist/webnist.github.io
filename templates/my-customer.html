@@ -7,10 +7,11 @@
 				{{post.title}}
 			</a>
 			<p>
-			<a href="{{post.terms.category.link}}">
-				{{post.terms.category.name}}
+			<ng-repeat="category in post.terms.category">
+			<a href="{{category.link}}">
+				{{category.name}}
 			</a>
-			</p>
+			</ng-repeat>
 		</li>
 	</ul>
 </div>
