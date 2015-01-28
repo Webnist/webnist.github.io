@@ -6,11 +6,11 @@
 				<img src="{{post.featured_image.attachment_meta.sizes.thumbnail.url}}" width="{{post.featured_image.attachment_meta.sizes.thumbnail.width}}" height="{{post.featured_image.attachment_meta.sizes.thumbnail.height}}" ng-if="!!post.featured_image">
 				{{post.title}}
 			</a>
-			<ng-repeat="category in post.terms.category">
+			<span ng-repeat="category in posts | filter:terms.category">
 			<a href="{{category.link}}">
 				{{category.name}}
 			</a>
-			</ng-repeat>
+			</span>
 		</li>
 	</ul>
 </div>
