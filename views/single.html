@@ -1,0 +1,18 @@
+<a href="/archives/category/my-news">カテゴリー</a>
+<a href="/archives/tag/test">タグ</a>
+<a href="/archives/1">シングル</a>
+<a href="/sample-page">ページ</a>
+single
+<article id="post-{{mak_post.post_id}}">
+	<header class="entry-header">
+		<h1><a ng-href="{{mak_post.permalink}}">{{mak_post.post_title}}</a></h1>
+		<p class="author">Author: <img ng-src="{{mak_post.author_avatar}}" alt="{{mak_post.author_name}}" width="20" height="20">{{mak_post.author_name}}</p>
+		<p class="post-dat">Date: {{mak_post.post_date}}</p>
+	</header><!-- /header -->
+	<p ng-if="!!mak_post.has_thumbnail">
+		<img class="thumbnail-{{mak_post.thumbnail_id}}" ng-src="{{mak_post.thumbnail_url}}" width="{{mak_post.thumbnail_width}}" height="{{mak_post.thumbnail_height}}" alt="{{mak_post.thumbnail_title}}">
+	</p>
+	<section>
+		<div ng-bind-html="mak_post.post_content"></div>
+	</section>
+</article>
